@@ -1,6 +1,4 @@
-namespace org.hyperledger_composer2.scms
-import org.hyperledger_composer.scms.*
-import org.hyperledger_composer1.scms.*
+namespace org.hyperledger_composer.scms
 
 participant Manufacturer identified by MID {
 o String MID
@@ -50,13 +48,12 @@ o DateTime ReceivedDate
 o DateTime ReceivedTime
 }
 
-asset Product identified by UPC_code {
-o String UPC_code
--->Distributor newOwner
-
+asset Product identified by UPCCode{
+o String UPCCode
+-->Manufacturer owner
 }
 
-transaction SubmitP2 extends SubmitP1{
--->Product product2
--->Retailer newOwner2
+transaction SubmitP{
+-->Product product
+-->Vendor NewOwner
 }
