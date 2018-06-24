@@ -1,0 +1,62 @@
+namespace org.hyperledger_composer2.scms
+import org.hyperledger_composer.scms.*
+import org.hyperledger_composer1.scms.*
+
+participant Manufacturer identified by MID {
+o String MID
+o String UPCCode
+o String Size
+o Double ShippingQuantity
+o DateTime ShippedDate
+o DateTime ShippedTime
+}
+
+participant Vendor identified by VID {
+o String VID
+o String UPCCode
+o String ReceivedSize
+o String ShippedSize
+o Double QuantityReceived
+o Double QuantityShipped 
+o Double VendorItemCost
+o DateTime ReceivedDate
+o DateTime ReceivedTime
+o DateTime ShippedDate
+o DateTime ShippedTime
+}
+
+participant Distributor identified by DID {
+o String DID
+o String UPCCode
+o String ReceivedSize
+o String ShippedSize
+o Double QuantityReceived
+o Double QuantityShipped 
+o Double DistributorItemCost
+o DateTime ReceivedDate
+o DateTime ReceivedTime
+o DateTime ShippedDate
+o DateTime ShippedTime
+}
+
+participant Retailer identified by RID {
+o String RID
+o String UPCCode
+o String ReceivedSize
+o Double QuantityReceived
+o Double VendorItemCost
+o Double DistributorItemCost
+o DateTime ReceivedDate
+o DateTime ReceivedTime
+}
+
+asset Product identified by UPC_code {
+o String UPC_code
+-->Distributor newOwner
+
+}
+
+transaction SubmitP2 extends SubmitP1{
+-->Product product2
+-->Retailer newOwner2
+}
