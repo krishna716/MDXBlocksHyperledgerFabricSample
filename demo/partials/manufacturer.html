@@ -1,0 +1,79 @@
+<div class="w3-display-container">
+    <div class="w3-content">
+        <div class="w3-row w3-padding">
+            <span class="w3-right"><a href="" ng-click="dashboard()">Dashboard</a></span>
+        </div>
+        <form action="" class="manufactuer_form">
+            <div class="w3-container">
+                <h3>Manufacturer</h3>
+
+                <label for="uco"><b>UPC Code</b></label>
+                <input type="text"  placeholder="" name="uco" required>
+
+                <label for="size"><b>Size</b></label>
+                <input type="text" placeholder="" name="size" required>
+
+                <label for="pd"><b>QTY</b></label>
+                <input type="text" name="pd"placeholder="" required>
+
+                <label for="date"><b>Date</b></label>
+                <input type="text" placeholder="" class="date" id="date" required>
+
+                <label for="ed"><b>Time</b></label>
+                <input type="text" class="time" placeholder="" name="ed" required>
+
+            </div>
+
+            <div class="w3-container w3-center" style="background-color:#f1f1f1;">
+                <button ng-click="">Create</button>
+            </div>
+        </form>
+        <br>
+        <div class="w3-display-container">
+            <div class="w3-content">
+                    <div class="w3-container">
+                        <h3>Catalog list</h3>
+                        <table class="w3-table-all">
+                            <tr>
+                                <th>UPC Code</th>
+                                <th>Size</th>
+                                <th>QTY Shipped</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            <tr>
+                                <td>87965</td>
+                                <td>10</td>
+                                <td>100</td>
+                                <td>4/29/2018</td>
+                                <td>12:00 PM</td>
+                            </tr>
+                        </table>
+
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+    $('.date').datepicker({
+        format : 'dd/mm/yyyy',
+        autoclose : true,
+        todayHighlight: true,
+        startDate : truncateDate(new Date())
+    });
+    $('#date').datepicker('setStartDate', truncateDate(new Date()));
+    function truncateDate(date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+
+    $('.time').timepicker({
+        'showDuration' : true,
+        'timeFormat' : 'h:i A',
+        'step' : '15'
+    });
+</script>

@@ -1,0 +1,22 @@
+<div class="w3-display-container">
+    <div class="w3-content">
+        <form action="" class="register_form">
+            <div class="w3-container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" ng-model="register.username" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" ng-model="register.password" placeholder="Enter Password" name="psw" required>
+
+                <label for="cpsw"><b>Confirm Password</b></label>
+                <input type="password" ng-model="register.confirmPassword" placeholder="Enter Password" name="cpsw" required>
+
+            </div>
+
+            <div class="w3-container w3-center" style="background-color:#f1f1f1;">
+                <button type="submit" ng-click="login()">Register</button>
+                <p>Already registered? <a href="#/login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
